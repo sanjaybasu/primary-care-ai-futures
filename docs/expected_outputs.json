@@ -1,0 +1,129 @@
+{
+    "temporal_validation": {
+        "description": "Model performance on held-out 2021-2025 data after training on 2015-2020",
+        "metrics": {
+            "auc_roc": {
+                "point_estimate": 0.81,
+                "ci_lower_95": 0.78,
+                "ci_upper_95": 0.84,
+                "interpretation": "Discrimination: Good"
+            },
+            "brier_score": {
+                "point_estimate": 0.102,
+                "ci_lower_95": 0.095,
+                "ci_upper_95": 0.110,
+                "interpretation": "Lower is better; <0.15 is acceptable"
+            },
+            "calibration_in_the_large": {
+                "point_estimate": -0.001,
+                "ci_lower_95": -0.008,
+                "ci_upper_95": 0.006,
+                "interpretation": "Perfect calibration at 0"
+            },
+            "calibration_slope": {
+                "point_estimate": 0.95,
+                "ci_lower_95": 0.88,
+                "ci_upper_95": 1.02,
+                "interpretation": "Perfect slope is 1.0"
+            },
+            "mape_wait_times": {
+                "point_estimate": 8.2,
+                "ci_lower_95": 6.4,
+                "ci_upper_95": 10.3,
+                "units": "percent",
+                "interpretation": "<10% error is acceptable for policy simulation"
+            }
+        }
+    },
+    "cost_effectiveness_analysis": {
+        "description": "Incremental cost-effectiveness of Equitable vs Market AI deployment",
+        "5_year_horizon": {
+            "incremental_cost_billions_usd": {
+                "point_estimate": 18.4,
+                "ci_lower_95": 14.1,
+                "ci_upper_95": 23.7
+            },
+            "incremental_qalys": {
+                "point_estimate": 270000,
+                "ci_lower_95": 190000,
+                "ci_upper_95": 360000
+            },
+            "icer_per_qaly": {
+                "point_estimate": 68000,
+                "ci_lower_95": 52000,
+                "ci_upper_95": 89000,
+                "interpretation": "Below $100k WTP threshold = cost-effective"
+            },
+            "probability_cost_effective": {
+                "at_50k_wtp": 0.42,
+                "at_100k_wtp": 0.78,
+                "at_150k_wtp": 0.94
+            }
+        }
+    },
+    "simulation_outcomes_2035": {
+        "description": "Projected system state in 2035 under three scenarios",
+        "wait_time_ratios_q4_to_q1": {
+            "baseline_no_ai": {
+                "point_estimate": 2.1,
+                "ci_lower_95": 1.9,
+                "ci_upper_95": 2.3
+            },
+            "market_ai_digital_divide": {
+                "point_estimate": 2.4,
+                "ci_lower_95": 2.2,
+                "ci_upper_95": 2.6,
+                "interpretation": "Inequality INCREASES"
+            },
+            "equitable_ai_deployment": {
+                "point_estimate": 1.7,
+                "ci_lower_95": 1.5,
+                "ci_upper_95": 1.9,
+                "interpretation": "Inequality DECREASES"
+            }
+        },
+        "mean_national_wait_days": {
+            "baseline_2035": 22.3,
+            "market_ai_2035": 19.6,
+            "equitable_ai_2035": 18.2
+        },
+        "pct_q4_counties_capacity_breach": {
+            "baseline": 42,
+            "market_ai": 38,
+            "equitable_ai": 24,
+            "definition": "Demand exceeds supply by >10%"
+        }
+    },
+    "systematic_review": {
+        "description": "Meta-regression of AI adoption by age demographics",
+        "included_studies": 8,
+        "total_sample_size": 47200,
+        "pooled_adoption_rates": {
+            "age_18_34": {
+                "point_estimate": 0.43,
+                "ci_lower_95": 0.40,
+                "ci_upper_95": 0.46
+            },
+            "age_35_64": {
+                "point_estimate": 0.20,
+                "ci_lower_95": 0.17,
+                "ci_upper_95": 0.23
+            },
+            "age_65_plus": {
+                "point_estimate": 0.06,
+                "ci_lower_95": 0.05,
+                "ci_upper_95": 0.08
+            }
+        }
+    },
+    "validation_tolerance": {
+        "note": "Due to random seed variation in Monte Carlo simulations, reproduced values should fall within these ranges",
+        "acceptable_deviation": "±10% of point estimate for continuous metrics",
+        "acceptable_ci_overlap": "Reproduced 95% CI should overlap with reported CI by at least 50%"
+    },
+    "reproduction_notes": {
+        "random_seed": "Set np.random.seed(42) and torch.manual_seed(42) for consistency",
+        "computational_requirements": "16GB RAM minimum, GPU optional (CPU runtime ~2 hours for full pipeline)",
+        "software_versions": "See requirements.txt; tested on Python 3.10, PyTorch 2.0, pandas 2.0"
+    }
+}

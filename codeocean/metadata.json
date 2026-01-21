@@ -1,0 +1,77 @@
+{
+    "name": "Primary Care AI Futures: Reproducibility Capsule",
+    "description": "Complete computational reproducibility capsule for 'Artificial Intelligence and the Future of Primary Care: Social Vulnerability Determines Impact' by Basu et al. (2026). Includes temporal validation, cost-effectiveness analysis, and scenario simulations.",
+    "authors": [
+        {
+            "name": "Sanjay Basu",
+            "affiliation": "University of California San Francisco",
+            "email": "sbasu@ucsf.edu",
+            "orcid": "0000-0002-8770-5000"
+        },
+        {
+            "name": "Zirui Song",
+            "affiliation": "Massachusetts General Hospital, Harvard Medical School"
+        },
+        {
+            "name": "Robert L. Phillips Jr.",
+            "affiliation": "American Board of Family Medicine"
+        },
+        {
+            "name": "Ishani Ganguli",
+            "affiliation": "Brigham and Women's Hospital, Harvard Medical School"
+        },
+        {
+            "name": "Bruce E. Landon",
+            "affiliation": "Beth Israel Deaconess Medical Center, Harvard Medical School"
+        },
+        {
+            "name": "Asaf Bitton",
+            "affiliation": "Ariadne Labs, Harvard Medical School"
+        },
+        {
+            "name": "Russell S. Phillips",
+            "affiliation": "Beth Israel Deaconess Medical Center, Harvard Medical School"
+        }
+    ],
+    "keywords": [
+        "primary care",
+        "artificial intelligence",
+        "health equity",
+        "digital divide",
+        "world models",
+        "health systems modeling",
+        "cost-effectiveness",
+        "social vulnerability"
+    ],
+    "license": "MIT",
+    "created": "2026-01-21",
+    "version": "1.0.0",
+    "language": "Python 3.10",
+    "hardware_requirements": {
+        "memory_gb": 16,
+        "cpu_cores": 4,
+        "gpu": "optional"
+    },
+    "estimated_runtime_minutes": 120,
+    "data_sources": [
+        {
+            "name": "Medical Expenditure Panel Survey (MEPS)",
+            "url": "https://meps.ahrq.gov/mepsweb/",
+            "note": "Synthetic data provided; real data requires separate download"
+        },
+        {
+            "name": "Area Health Resources Files (AHRF)",
+            "url": "https://data.hrsa.gov/data/download"
+        },
+        {
+            "name": "County Health Rankings",
+            "url": "https://www.countyhealthrankings.org/"
+        }
+    ],
+    "outputs": {
+        "figures": 8,
+        "tables": 7,
+        "metrics": "See docs/expected_outputs.json"
+    },
+    "doi": "10.24433/CO.XXXXXXX.v1"
+}
