@@ -184,7 +184,6 @@ The code is provided "as-is" for research purposes. Clinical deployment requires
 **Corresponding Author:** Sanjay Basu, MD PhD  
 Email: sbasu@ucsf.edu  
 
-**Issues \u0026 Pull Requests:** Welcome! Please open an issue for bugs or questions.
 
 ---
 
