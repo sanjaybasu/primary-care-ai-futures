@@ -2,7 +2,6 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CodeOcean](https://codeocean.com/codeocean-assets/badge/open-in-code-ocean.svg)](https://codeocean.com/capsule/XXXXXXX)
 
 **Associated Manuscript:** Basu S, Song Z, Phillips RL Jr, et al. Artificial Intelligence and the Future of Primary Care: Social Vulnerability Determines Impact. 2026.
 ---
