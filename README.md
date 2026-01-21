@@ -10,10 +10,6 @@
 
 This repository contains the complete code and data to reproduce the analyses in Basu et al. (2026), which examines how the deployment modality of artificial intelligence in primary care affects access disparities.
 
-**Key Findings:**
-- Market-driven AI deployment exacerbates inequality (Q4:Q1 wait-time ratio increases from 1.8 to 2.4)
-- Equity-focused deployment stabilizes disparities at ICER of $68,000/QALY
-- Temporal validation confirms model predictive validity (AUC 0.81, calibration slope 0.95)
 
 ---
 
@@ -169,11 +165,7 @@ If you use this code or data, please cite:
 @article{basu2026primary,
   title={Artificial Intelligence and the Future of Primary Care: Social Vulnerability Determines Impact},
   author={Basu, Sanjay and Phillips Jr., Robert L. and Bitton, Asaf and Landon, Bruce E. and Song, Zirui and Phillips, Russell S.},
-  journal={Science},
-  year={2026},
-  volume={XX},
-  pages={XXX-XXX},
-  doi={10.1126/science.XXX}
+  year={2026}
 }
 ```
 
@@ -191,7 +183,6 @@ The code is provided "as-is" for research purposes. Clinical deployment requires
 
 **Corresponding Author:** Sanjay Basu, MD PhD  
 Email: sbasu@ucsf.edu  
-Affiliation: Center for Primary Care, UCSF
 
 **Issues \u0026 Pull Requests:** Welcome! Please open an issue for bugs or questions.
 
