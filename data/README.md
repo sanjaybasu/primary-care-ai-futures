@@ -1,108 +1,161 @@
 # Data Directory
 
-This directory contains the data necessary to reproduce the analyses in Basu et al. (2026).
+This directory contains documentation for accessing the data necessary to reproduce the analyses in Basu et al. (2026), "Primary Care Interventions and Mortality: Associations Estimated via Causal Inference Methods from Integrated National Data."
+
+## Data Sources Overview
+
+The analysis integrates seven national data sources:
+
+| Data Source | Sample | Variables | Access |
+|:---|:---|:---|:---|
+| NHIS-NDI | 1,247,382 person-years | Individual mortality, demographics, access | Restricted |
+| MEPS-NDI | 456,921 person-years | Utilization, expenditures, mortality | Restricted |
+| NHANES | 78,246 adults | Clinical measurements | Public |
+| NAMCS | 134,847 visits | Practice patterns | Public |
+| AHRF | 3,143 counties | Workforce supply | Public |
+| CDC WONDER | 3,143 counties | County mortality rates | Public |
+| State Policies | 50 states + DC | Policy timing | Public |
 
 ## Directory Structure
 
 ```
 data/
-├── raw/                    # Links and instructions for downloading public data
+├── raw/                    # Instructions for downloading public data
 │   ├── AHRF_download.md
-│   ├── CHR_download.md
-│   ├── MEPS_download.md
-│   └── ACS_download.md
+│   ├── NHANES_download.md
+│   ├── NAMCS_download.md
+│   └── CDC_WONDER_download.md
 ├── processed/              # Pre-processed county-level aggregates
 │   ├── county_svi_scores.csv
-│   ├── digital_readiness_2025.csv
-│   └── provider_ratios_2015_2025.csv
+│   ├── state_policy_timing.csv
+│   └── provider_ratios_2008_2023.csv
 └── synthetic/              # Synthetic data for testing code
-    └── synthetic_meps_sample.csv
+    └── synthetic_nhis_sample.csv
 ```
+
+## Restricted Data Access
+
+### NHIS-NDI Linkage (Primary Mortality Data)
+
+**Source:** National Center for Health Statistics (NCHS)
+
+**Application:** NCHS Research Data Center
+- URL: https://www.cdc.gov/rdc/
+- Process: Submit proposal, obtain IRB approval, execute data use agreement
+- Timeline: 2-4 months
+
+**Variables Used:**
+- NHIS 2008-2023 survey responses (demographics, insurance, healthcare access)
+- NDI mortality follow-up through December 2024
+- County identifiers for linkage to AHRF/policy data
+
+### MEPS-NDI Linkage (Validation Cohort)
+
+**Source:** Agency for Healthcare Research and Quality (AHRQ)
+
+**Application:** AHRQ Data Center
+- URL: https://meps.ahrq.gov/
+- Process: Submit proposal, IRB approval, restricted access agreement
+- Timeline: 2-3 months
+
+**Variables Used:**
+- MEPS 2008-2023 (Panels 13-28)
+- Healthcare utilization, expenditures, access measures
+- NDI mortality linkage
 
 ## Public Data Sources
 
-All primary data sources are publicly available. Due to data use agreements, we cannot redistribute raw individual-level MEPS data, but we provide:
+### NHANES (Clinical Measurements)
 
-1. **Download instructions** in `raw/` subdirectory
-2. **Processed county-level aggregates** (non-identifiable) in `processed/`
-3. **Synthetic data** matching statistical properties for code testing in `synthetic/`
+**Source:** CDC National Center for Health Statistics
+- URL: https://wwwn.cdc.gov/nchs/nhanes/
+- Format: SAS transport files, direct download
+- Years: 2007-2023 cycles
+
+**Variables:**
+- Blood pressure, glucose, lipids
+- BMI, physical examination data
+- Laboratory results
+
+### NAMCS (Practice Patterns)
+
+**Source:** CDC National Center for Health Statistics
+- URL: https://www.cdc.gov/nchs/ahcd/
+- Format: SAS/Stata datasets
+- Years: 2008-2021
+
+**Variables:**
+- Visit characteristics, diagnoses
+- Telemedicine use, EHR adoption
+- Time with provider
 
 ### Area Health Resources Files (AHRF)
-- **Source:** HRSA Data Warehouse
-- **URL:** https://data.hrsa.gov/data/download
-- **Years:** 2015-2025
-- **Variables:** Primary care physicians per 100,000 population, HPSA scores
-- **Format:** CSV download
-- **Instructions:** See `raw/AHRF_download.md`
 
-### County Health Rankings (CHR)
-- **Source:** University of Wisconsin Population Health Institute
-- **URL:** https://www.countyhealthrankings.org/explore-health-rankings/rankings-data-documentation
-- **Years:** 2015-2025
-- **Variables:** Premature death (YPLL), poverty, unemployment, housing burden
-- **Format:** CSV download
-- **Instructions:** See `raw/CHR_download.md`
+**Source:** HRSA Data Warehouse
+- URL: https://data.hrsa.gov/data/download
+- Format: CSV/Excel
+- Years: 2008-2023
 
-### Medical Expenditure Panel Survey (MEPS)
-- **Source:** AHRQ MEPS
-- **URL:** https://meps.ahrq.gov/mepsweb/
-- **Years:** 2015-2022 (Panels 20-27)
-- **Variables:** Healthcare utilization, demographics, insurance, chronic conditions
-- **Format:** Stata (.dta) files
-- **Restriction:** Data Use Agreement required
-- **Instructions:** See `raw/MEPS_download.md` for detailed steps
+**Variables:**
+- Primary care physicians per 100,000
+- Nurse practitioners, physician assistants
+- HPSA designation scores
 
-### American Community Survey (ACS)
-- **Source:** US Census Bureau
-- **URL:** https://www.census.gov/programs-surveys/acs/data.html
-- **Product:** 5-Year Estimates (2021)
-- **Variables:** Age distribution, broadband penetration, household income
-- **Format:** CSV download via data.census.gov
-- **Instructions:** See `raw/ACS_download.md`
+### CDC WONDER (County Mortality)
 
-## Processed Data
+**Source:** CDC Wide-ranging Online Data for Epidemiologic Research
+- URL: https://wonder.cdc.gov/
+- Format: Tab-delimited text
+- Years: 2008-2023
 
-County-level aggregates are provided in `processed/` and can be used directly:
+**Variables:**
+- Age-adjusted mortality rates by county
+- Cause-specific mortality (ICD-10)
+- Population denominators
+
+### State Policy Data
+
+**Sources:** Kaiser Family Foundation, NCSL, individual state sources
+- Medicaid expansion timing
+- Scope-of-practice laws for APPs
+- Telemedicine parity laws
+- GME funding allocations
+
+## Processed Data Files
+
+For users without restricted data access, we provide county-level aggregates:
 
 ### `county_svi_scores.csv`
-Columns:
-- `fips`: County FIPS code
-- `year`: 2015-2025
-- `poverty_rate`: Percentage below poverty line
-- `unemployment_rate`: Unemployment percentage
-- `housing_burden`: % renter-occupied with >30% cost burden
-- `svi_proxy`: Standardized composite (z-score average)
-- `svi_quartile`: 1 (lowest) to 4 (highest vulnerability)
+Social Vulnerability Index components by county-year (2008-2023)
 
-### `digital_readiness_2025.csv`
-Columns:
-- `fips`: County FIPS code
-- `broadband_penetration`: Fraction with >25/3 Mbps
-- `pct_age_18_34`: Population fraction aged 18-34
-- `pct_age_35_64`: Population fraction aged 35-64
-- `pct_age_65plus`: Population fraction aged 65+
-- `digital_readiness`: Computed score (0-1)
+### `state_policy_timing.csv`
+Policy implementation dates:
+- `medicaid_expansion_date`: Effective date of Medicaid expansion (if applicable)
+- `app_scope_full_practice`: Year of full practice authority
+- `telemedicine_parity_date`: Date of parity law enactment
 
-### `provider_ratios_2015_2025.csv`
-Columns:
-- `fips`: County FIPS code
-- `year`: 2015-2025
-- `pcp_per_100k`: Primary care physicians per 100,000 population
-- `population`: County population
-- `hpsa_score`: Health Professional Shortage Area score
+### `provider_ratios_2008_2023.csv`
+Workforce supply by county-year:
+- `pcp_per_100k`: Primary care physicians per 100,000
+- `np_per_100k`: Nurse practitioners per 100,000
+- `pa_per_100k`: Physician assistants per 100,000
 
 ## Synthetic Data
 
-For users who cannot access MEPS due to data use restrictions, we provide synthetic individual-level data in `synthetic/synthetic_meps_sample.csv` that preserves the statistical structure for code testing.
+For code testing without restricted data, `synthetic/synthetic_nhis_sample.csv` provides simulated individual-level data with similar statistical properties.
 
-**Note:** Synthetic data will produce similar but not identical results to those in the manuscript. For exact reproduction, use the actual MEPS data following instructions in `raw/MEPS_download.md`.
+**Note:** Results from synthetic data will differ from manuscript values. Use restricted data for exact reproduction.
 
 ## Data Citations
 
-1. Health Resources and Services Administration (HRSA). Area Health Resources Files, 2015-2025. Rockville, MD: US Department of Health and Human Services.
+1. National Center for Health Statistics. National Health Interview Survey, 2008-2023, linked to National Death Index through 2024. Hyattsville, MD: CDC/NCHS.
 
-2. University of Wisconsin Population Health Institute. County Health Rankings \u0026 Roadmaps, 2015-2025. Madison, WI.
+2. Agency for Healthcare Research and Quality. Medical Expenditure Panel Survey, 2008-2023, linked to National Death Index. Rockville, MD: AHRQ.
 
-3. Agency for Healthcare Research and Quality (AHRQ). Medical Expenditure Panel Survey, 2015-2022. Rockville, MD: US Department of Health and Human Services.
+3. National Center for Health Statistics. National Health and Nutrition Examination Survey, 2007-2023. Hyattsville, MD: CDC/NCHS.
 
-4. US Census Bureau. American Community Survey 5-Year Estimates, 2021. Washington, DC: US Department of Commerce.
+4. National Center for Health Statistics. National Ambulatory Medical Care Survey, 2008-2021. Hyattsville, MD: CDC/NCHS.
+
+5. Health Resources and Services Administration. Area Health Resources Files, 2008-2023. Rockville, MD: HRSA.
+
+6. Centers for Disease Control and Prevention. CDC WONDER Online Database. Atlanta, GA: CDC.
