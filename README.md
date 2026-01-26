@@ -1,15 +1,9 @@
-# Strategies and Thresholds to Close the Primary Care Mortality Gap: A Calibrated Causal Simulation
-
-Code and data repository for the *Science* submission: **"Strategies and Thresholds to Close the Primary Care Mortality Gap: A Calibrated Causal Simulation"**
+# Strategies and Thresholds to Close the Primary Care Mortality Gap
 
 ## Overview
 
-This repository contains the analysis code, data processing pipelines, and reproduction scripts for the study. We integrated individual-level clinical data (NHANES-NDI), county-level infrastructure data (AHRF, SVI), and rigorous meta-analyses to model the mortality effects of ten Traditional Policy interventions versus emerging Artificial Intelligence technologies.
+This repository contains the analysis code, data processing pipelines, and reproduction scripts for the study. 
 
-**Key Findings:**
-*   **Mortality Gap:** High-vulnerability counties experienced a 2.4 deaths/1,000 person-year mortality divergence associated with a 38% decline in physician supply.
-*   **Effective Strategies:** Medicaid expansion ($$RR=0.90$$) and Community Health Worker programs at 65% scale ($$RR=0.93$$) are required to significantly narrow this gap.
-*   **AI Thresholds:** Current AI documentation tools showed null mortality benefits ($$RR=0.99$$). For AI to replicate the health equity impact of Medicaid coverage, it must achieve a **nine-fold increase in efficacy** ($$RR=0.91$$), explicitly translating efficiency into clinical capacity.
 
 ## Repository Structure
 
@@ -24,8 +18,6 @@ primary_care_ai_futures/
 ├── data/
 │   ├── raw/                   # Raw input data (not tracked)
 │   └── processed/             # Integrated 'Universal Corpus'
-├── results/                   # Calibration metrics and sensitivity tables
-└── figures/                   # Cleaned manuscript figures
 ```
 
 ## Methods
