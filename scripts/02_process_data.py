@@ -189,26 +189,54 @@ print(f"  Mean PCP supply: {workforce_df['pcp_per_100k'].mean():.1f} per 100k")
 print(f"  Mean NP supply: {workforce_df['np_per_100k'].mean():.1f} per 100k")
 
 # =============================================================================
-# 4. STATE MORTALITY DATA PLACEHOLDER
+# 5. CREATE INTEGRATED STATE DATASET
 # =============================================================================
-print("\n[4/4] State mortality data...")
+print("\n[5/5] Creating integrated state dataset...")
 
-# Note: CDC WONDER requires manual query
-# This creates a placeholder structure that should be filled with actual data
-print("  State mortality requires manual CDC WONDER query.")
-print("  Please query age-adjusted mortality rates by state (2019, 2022)")
-print("  and save to: data/processed/state_mortality_2019_2022.csv")
+# Load components
+try:
+    if os.path.exists(os.path.join(PROCESSED_DIR, 'state_mortality.csv')):
+         mortality = pd.read_csv(os.path.join(PROCESSED_DIR, 'state_mortality.csv'))
+    else:
+         # Use template if real data not available (for structure)
+         mortality = pd.read_csv(os.path.join(PROCESSED_DIR, 'state_mortality_template.csv'))
+         print("  Using mortality template (warning: contains empty values)")
 
-# Create expected file structure
-state_mort_template = pd.DataFrame({
-    'state': workforce_df['state'],
-    'death_rate_2019': [np.nan] * len(workforce_df),
-    'death_rate_2022': [np.nan] * len(workforce_df)
-})
-state_mort_template.to_csv(os.path.join(PROCESSED_DIR, 'state_mortality_template.csv'), index=False)
+    state_svi_file = os.path.join(PROCESSED_DIR, 'svi_state_level.csv')
+    if os.path.exists(state_svi_file):
+        svi_data = pd.read_csv(state_svi_file)
+        # Map ST_ABBR to state if needed, or assume 'st_abbr' is 'state' from merge
+        svi_data = svi_data.rename(columns={'ST_ABBR': 'state'})
+    
+    # Merge
+    integrated = pd.merge(workforce_df, mortality, on='state', how='left')
+    if os.path.exists(state_svi_file):
+        integrated = pd.merge(integrated, svi_data, on='state', how='left')
+
+    # Add policy columns (Expansion status)
+    # Using hardcoded dictionary from src/17_formal_dml.py to ensure consistency
+    expansion_dates = {
+        'AK': 2015, 'AZ': 2014, 'AR': 2014, 'CA': 2014, 'CO': 2014,
+        'CT': 2014, 'DE': 2014, 'DC': 2014, 'HI': 2014, 'IL': 2014,
+        'IN': 2015, 'IA': 2014, 'KY': 2014, 'LA': 2016, 'ME': 2019,
+        'MD': 2014, 'MA': 2014, 'MI': 2014, 'MN': 2014, 'MT': 2016,
+        'NV': 2014, 'NH': 2014, 'NJ': 2014, 'NM': 2014, 'NY': 2014,
+        'ND': 2014, 'OH': 2014, 'OK': 2024, 'OR': 2014, 'PA': 2015,
+        'RI': 2014, 'VT': 2014, 'VA': 2019, 'WA': 2014, 'WV': 2014,
+        'ID': 2020, 'NE': 2020, 'UT': 2020, 'MO': 2021, 'NC': 2023
+    }
+    integrated['expansion_year'] = integrated['state'].map(lambda x: expansion_dates.get(x, 9999))
+    integrated['expanded_medicaid'] = (integrated['expansion_year'] <= 2022).astype(int)
+
+    # Save
+    integrated.to_csv(os.path.join(PROCESSED_DIR, 'state_integrated_2022.csv'), index=False)
+    print(f"  Integrated dataset saved: {os.path.join(PROCESSED_DIR, 'state_integrated_2022.csv')}")
+    print(f"  Rows: {len(integrated)}")
+
+except Exception as e:
+    print(f"  Error creating integrated dataset: {e}")
 
 print("\n" + "=" * 70)
 print("DATA PROCESSING COMPLETE")
 print("=" * 70)
-print(f"\nProcessed data directory: {PROCESSED_DIR}")
-print("Next step: Run 03_analysis.py")
+
