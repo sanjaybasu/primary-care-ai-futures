@@ -75,13 +75,6 @@ pip install -r requirements.txt
 - **CDC WONDER**: State-level mortality rates 2014-2023 (requires data use agreement)
 - **NHANES-NDI**: Full linkage files (requires RDC approval for restricted variables)
 
-### Missing from Repository
-Due to size and data use agreements, the following are NOT included:
-- `data/raw/NHANES_*_MORT_2019_PUBLIC.dat` (10 files)
-- `data/raw/wonder_state_mortality.txt`
-- `data/individual/nhanes_mortality_linked.csv`
-- `data/processed/state_integrated_2022.csv`
-
 See `REPRODUCTION_AUDIT.md` for complete data inventory.
 
 ---
@@ -110,7 +103,6 @@ If using this code or data, please cite:
 ```
 Basu S, Ganguli I, Bitton A, Phillips RL Jr, Song Z, Phillips RS, Landon BE.
 Strategies and Thresholds to Close the Primary Care Mortality Gap: A Calibrated Causal Simulation.
-[Journal] [Year]. [DOI]
 ```
 
 ---
