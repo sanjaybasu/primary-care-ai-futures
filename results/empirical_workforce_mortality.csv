@@ -1,0 +1,2 @@
+pcp_mortality_corr,pcp_mortality_p,total_pc_mortality_corr,total_pc_mortality_p,pcp_effect_per_10,pcp_effect_ci_lower,pcp_effect_ci_upper,pcp_rr_per_10,pcp_rr_ci_lower,pcp_rr_ci_upper,high_pcp_mortality,low_pcp_mortality,high_low_rr
+-0.478326973172,0.0003849352226629977,-0.33264941826474925,0.017076380405856257,-48.150781352983714,-88.76103422595844,-19.289229069905286,0.9416772786021164,0.8943399395221805,0.977847126395642,756.5576923076923,897.388,1.1861461579522636

@@ -1,0 +1,2 @@
+n_individuals,n_deaths,unweighted_py,unweighted_rate,weighted_py,weighted_rate,weighted_rate_ci_lower,weighted_rate_ci_upper,pc_amenable_pct,pc_amenable_ci_lower,pc_amenable_ci_upper
+59064,9249,583850,15.841397619251522,583850.0,15.841397619251522,15.560793835459664,16.117129110252744,44.9129635636285,43.982863012217535,45.88604173424154

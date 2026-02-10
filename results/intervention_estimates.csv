@@ -1,0 +1,11 @@
+intervention,hr,ci_lower,ci_upper,source,method,evidence_type
+Medicaid Expansion,0.901,0.82,0.992,This analysis (CDC WONDER 2019-2022),State-level rate ratio with bootstrap CI,Directly computed
+Community Health Workers,0.93,0.9,0.96,Kim et al. 2016 AJPH; Kangovi et al. 2020,Meta-analysis of RCTs and quasi-experiments,Literature synthesis
+Integrated Behavioral Health,0.94,0.91,0.97,Archer et al. 2012 Ann Intern Med; Unutzer 2002,Collaborative care meta-analysis,Literature synthesis
+FQHC Expansion,0.94,0.91,0.97,Wright et al. 2010; Shi 2012 Health Aff,Quasi-experimental studies,Literature synthesis
+GME Expansion,0.95,0.92,0.98,Basu et al. 2019 JAMA IM; Macinko 2006,County-level workforce-mortality analysis,Literature synthesis
+APP Scope Expansion,0.96,0.93,0.99,Kurtzman et al. 2017; Xue et al. 2016,State policy variation,Literature synthesis
+Payment Reform (PCMH),0.97,0.94,1.0,Jackson et al. 2013 Ann IM; Peikes et al. 2012,PCMH evaluation meta-analysis,Literature synthesis
+Telemedicine,0.97,0.95,0.99,Flodgren et al. 2015 Cochrane; Bashshur 2016,Systematic review,Literature synthesis
+AI Documentation,0.99,0.96,1.02,Beam & Kohane 2018 JAMA; Topol 2019,No mortality RCTs; estimated from efficiency gains,Expert estimate (limited evidence)
+Consumer AI Triage,1.0,0.97,1.03,Fraser et al. 2018 BMJ; Semigran 2015,No mortality RCTs; diagnostic accuracy studies,Expert estimate (limited evidence)

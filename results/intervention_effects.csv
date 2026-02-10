@@ -1,0 +1,11 @@
+intervention,effect,se,ci_low,ci_high,method
+Telemedicine expansion,-180,45,-268,-92,DML
+AI documentation tools,-15,40,-93,63,DML
+Consumer AI triage,5,35,-64,74,DML
+Medicaid expansion,-420,85,-587,-253,DiD
+FQHC expansion,-350,70,-487,-213,IV
+APP scope expansion,-150,55,-258,-42,DiD
+Community health workers,-280,90,-456,-104,RCT meta
+Integrated behavioral health,-220,65,-347,-93,RCT meta
+GME expansion,-180,75,-327,-33,IV
+Payment reform,-120,60,-238,-2,DiD

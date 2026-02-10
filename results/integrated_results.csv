@@ -1,0 +1,18 @@
+Metric,Value,Source
+Individual-Level Sample (NHANES),"59,064",NHANES 1999-2018
+Individual Person-Years,"583,850",NHANES mortality linkage
+Individual Deaths,"9,249",NDI linkage through 2019
+Mortality Rate,15.84 per 1000 py,NHANES
+PC-Amenable Deaths,44.9%,"UCOD codes 1,3,5,7,8,9"
+,,
+State-Level Sample,51 states,CDC WONDER
+Medicaid Expansion RR,0.901,2022 rates
+Medicaid 95% CI,"(0.821, 0.989)",Bootstrap
+Relative Reduction,9.9%,Expansion vs non-expansion
+DiD Estimate,"-10.9 per 100,000",2019 vs 2022
+E-value,1.46,VanderWeele & Ding
+,,
+County-Level Sample,"83,342",CDC SVI 2022
+PCP-Mortality Correlation,r = -0.478,p = 0.0004
+Per 10 Clinicians,"-20.6 per 100,000",Linear regression
+Uninsured Disparity (Q4/Q1),3.70x,SVI quartiles

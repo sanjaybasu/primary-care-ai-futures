@@ -1,0 +1,2 @@
+method,ate,ate_ci_low,ate_ci_high,cate_min,cate_max,cate_mean,cate_std,n_states,n_treated,n_control
+Bootstrap DiD + T-Learner,-10.507329803947014,-20.085611434108653,-0.05962246594876673,-286.40703418982173,91.47329962218805,-85.97801070358294,92.34729899996904,51,41,10

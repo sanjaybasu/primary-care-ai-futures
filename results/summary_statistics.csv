@@ -1,0 +1,2 @@
+nhanes_n,nhanes_person_years,nhanes_deaths,nhanes_mortality_rate,pc_amenable_pct,medicaid_hr,medicaid_ci_lower,medicaid_ci_upper,medicaid_reduction_pct,e_value,e_value_ci,svi_counties,uninsured_disparity,pcp_mortality_corr,pcp_mortality_p,workforce_effect_per_10
+59064,583850,9249,15.841397619251522,44.9129635636285,0.9005551156778658,0.8199536308433609,0.9920563525831305,9.944488432213417,1.4605978098267718,1.097848059768227,83342,3.7041154725589154,-0.478326973172,0.0003849352226629977,-20.634337329307016

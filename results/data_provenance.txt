@@ -1,0 +1,41 @@
+
+DATA PROVENANCE AND SOURCES
+===========================
+
+1. NHANES Public-Use Linked Mortality Files
+   URL: https://www.cdc.gov/nchs/data-linkage/mortality-public.htm
+   Files: NHANES_1999_2000_MORT_2019_PUBLIC.dat through NHANES_2017_2018_MORT_2019_PUBLIC.dat
+   Downloaded: Direct from CDC FTP
+   N: 59,064 eligible individuals
+
+2. CDC WONDER Compressed Mortality Files
+   URL: https://wonder.cdc.gov/
+   Years: 2019, 2022
+   Level: State
+   Variables: Age-adjusted death rates
+
+3. CDC Social Vulnerability Index 2022
+   URL: https://www.atsdr.cdc.gov/placeandhealth/svi/
+   Downloaded: Direct CSV
+   N: 83,342 census tracts/counties
+
+4. State Medicaid Expansion Status
+   Source: Kaiser Family Foundation
+   URL: https://www.kff.org/medicaid/issue-brief/status-of-state-medicaid-expansion-decisions/
+
+5. State Workforce Data
+   Source: AAMC, AANP published estimates
+   Level: State
+   Variables: PCP/100k, NP/PA/100k
+
+6. Literature-Synthesis Estimates
+   Method: Published meta-analyses and quasi-experimental studies
+   Each estimate includes source citation
+   Evidence graded as: Directly computed, Literature synthesis, or Expert estimate
+
+LIMITATIONS
+===========
+- NHIS-NDI and MEPS-NDI linkages require restricted data access agreements
+- NHANES public data lacks state/county identifiers
+- AI intervention effects based on limited evidence (no mortality RCTs exist)
+- State-level analysis subject to ecological fallacy caveats

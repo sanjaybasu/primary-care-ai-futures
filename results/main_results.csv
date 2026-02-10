@@ -1,0 +1,9 @@
+Analysis,Value,Interpretation
+Medicaid Expansion DiD,-10.9,Expansion states had 10.9/100k lower mortality increase 2019-2022
+Mortality Rate Ratio (Expansion/Non-Expansion),0.901,9.9% lower mortality in expansion vs non-expansion states
+95% CI Lower,0.821,Lower bound of 95% confidence interval
+95% CI Upper,0.989,Upper bound of 95% confidence interval
+Mortality Disparity (SVI Q4/Q1),0.99,High-vulnerability counties have 0.99x higher mortality
+PCP-Mortality Correlation,-0.478,Higher PCP supply associated with lower mortality
+E-value (Point),1.46,Minimum confounder association to explain away result
+E-value (CI),1.12,Minimum confounder association to move CI to null

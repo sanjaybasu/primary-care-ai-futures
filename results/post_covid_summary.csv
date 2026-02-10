@@ -1,0 +1,13 @@
+metric,value
+medicaid_rr_2023,0.9094363155841515
+medicaid_ci_lower_2023,0.8426838410604283
+medicaid_ci_upper_2023,0.9832136612994361
+expansion_mortality_2023,807.3975609756096
+nonexpansion_mortality_2023,887.8
+pcp_change_pct,-25.13812154696133
+np_change_pct,182.9875518672199
+pa_change_pct,77.60416666666669
+total_change_pct,35.26361279170268
+brfss_personal_doctor,74.2235294117647
+brfss_diabetes,11.11764705882353
+brfss_hypertension,33.470588235294116

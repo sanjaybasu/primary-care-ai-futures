@@ -1,0 +1,5 @@
+metric,value,dataset
+Training C-statistic,0.6830124465021358,NHANES pre-2015
+Validation C-statistic,0.6157142970630527,NHANES post-2014
+Training calibration slope,2.350125921107899,NHANES pre-2015
+Validation calibration slope,2.9499862520155364,NHANES post-2014
